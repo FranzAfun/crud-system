@@ -1,19 +1,23 @@
-<h1>Create Record</h1>
+{% extends "records/base.html" %}
+
+{% block content %}
+
+<h2>Add New Record</h2>
 
 <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+{% csrf_token %}
 
-    <label>Title</label><br>
-    <input type="text" name="title"><br><br>
+<label>Title</label>
+<input type="text" name="title">
 
-    <label>Description</label><br>
-    <textarea name="description"></textarea><br><br>
+<label>Description</label>
+<textarea name="description"></textarea>
 
-    <label>File</label><br>
-    <input type="file" name="file"><br><br>
+<label>Upload File</label>
+<input type="file" name="file">
 
-    <button type="submit">Save Record</button>
+<button type="submit">Save Record</button>
+
 </form>
 
-<br>
-<a href="{% url 'record_list' %}">Back to Records</a>
+{% endblock %}

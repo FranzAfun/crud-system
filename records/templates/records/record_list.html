@@ -1,20 +1,44 @@
+{% extends "records/base.html" %}
+
+{% block content %}
+
 <h1>Records by Franz</h1>
-<a href="{% url 'create_record' %}">Add New Record</a>
 
-<ul>
-    {% for record in records %}
-        <li>
-            <strong>{{ record.title }}</strong><br>
-            {{ record.description }}<br>
-            File: {{ record.file }}<br>
-            Created: {{ record.created_at }}
+<a class="add-btn" href="{% url 'create_record' %}">Add New Record</a>
 
-            <a href="{% url 'update_record' record.id %}">Update</a>
-            <a href="{% url 'delete_record' record.id %}">Delete</a>
+{% for record in records %}
 
-        </li>
-        <hr>
-    {% empty %}
-        <p>No records found.</p>
-    {% endfor %}
-</ul>
+<div class="record">
+
+<strong>{{ record.title }}</strong><br>
+{{ record.description }}<br>
+
+{% if record.file %}
+    {% if '.jpg' in record.file.url or '.jpeg' in record.file.url or '.png' in record.file.url %}
+        <img src="{{ record.file.url }}" width="250px"><br>
+    {% else %}
+        File: <a href="{{ record.file.url }}">Open File</a><br>
+    {% endif %}
+{% endif %}
+
+<br>
+
+Created: {{ record.created_at }}
+
+<br><br>
+
+<div class="actions">
+<a href="{% url 'update_record' record.id %}">Update</a>
+<a href="{% url 'delete_record' record.id %}"
+onclick='return confirm("Are you sure you want to delete this record??")'>Delete</a>
+</div>
+
+</div>
+
+{% empty %}
+
+<p>No records were found.</p>
+
+{% endfor %}
+
+{% endblock %}

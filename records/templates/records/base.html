@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CRUD System</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f4f4;
+    margin:40px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.record{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+img{
+    margin-top:10px;
+    border-radius:4px;
+}
+
+.actions a{
+    padding:6px 10px;
+    border-radius:4px;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.actions a:first-child{
+    background:#007bff;
+    color:white;
+}
+
+.actions a:last-child{
+    background:#dc3545;
+    color:white;
+}
+
+.add-btn{
+    display:inline-block;
+    padding:10px 16px;
+    background:#28a745;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+    margin-bottom:20px;
+}
+
+.add-btn:hover{
+    background:#218838;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:6px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+}
+
+input, textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:4px;
+}
+
+button{
+    padding:10px 16px;
+    background:#007bff;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#0069d9;
+}
+
+.back{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#0066cc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+</body>
+</html>

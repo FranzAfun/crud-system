@@ -1,19 +1,33 @@
-<h1>Update Record</h1>
+{% extends "records/base.html" %}
+
+{% block content %}
+
+<h2>Update Record</h2>
 
 <form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+{% csrf_token %}
 
-    <label>Title</label><br>
-    <input type="text" name="title" value="{{ record.title }}"><br><br>
+<label>Title</label>
+<input type="text" name="title" value="{{ record.title }}">
 
-    <label>Description</label><br>
-    <textarea name="description">{{ record.description }}</textarea><br><br>
+<label>Description</label>
+<textarea name="description">{{ record.description }}</textarea>
 
-    <label>Current File:</label><br>
-    <a href="{{ record.file.url }}">{{ record.file.name }}</a><br><br>
+<label>Current File</label><br>
 
-    <label>Upload New File (optional)</label><br>
-    <input type="file" name="file"><br><br>
+{% if record.file %}
+    {% if '.jpg' in record.file.url or '.jpeg' in record.file.url or '.png' in record.file.url %}
+        <img src="{{ record.file.url }}" width="200px"><br><br>
+    {% else %}
+        <a href="{{ record.file.url }}">Open Current File</a><br><br>
+    {% endif %}
+{% endif %}
 
-    <button type="submit">Update</button>
+<label>Replace File (optional)</label>
+<input type="file" name="file">
+
+<button type="submit">Update Record</button>
+
 </form>
+
+{% endblock %}
