@@ -37,3 +37,7 @@ def delete_record(request, pk):
     record = Record.objects.get(id = pk)
     record.delete()
     return redirect('record_list')
+
+def view_record(request, pk):
+    record = get_object_or_404(Record, pk=pk)
+    return render(request, 'records/view_record.html', {'record': record})

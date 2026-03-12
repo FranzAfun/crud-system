@@ -6,94 +6,175 @@
 <style>
 
 body{
-    font-family: Arial, sans-serif;
-    background:#f4f4f4;
-    margin:40px;
+font-family: Arial, sans-serif;
+background:#f4f4f4;
+margin:40px;
 }
 
 .container{
-    max-width:800px;
-    margin:auto;
+max-width:1000px;
+margin:auto;
+}
+
+/* ---------- PAGE CARDS ---------- */
+
+.card{
+background:white;
+padding:25px;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
 .record{
-    background:white;
-    padding:20px;
-    margin-bottom:20px;
-    border-radius:6px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:6px;
+box-shadow:0 2px 6px rgba(0,0,0,0.1);
 }
 
 img{
-    margin-top:10px;
-    border-radius:4px;
+margin-top:10px;
+border-radius:4px;
+max-width:100%;
 }
 
-.actions a{
-    padding:6px 10px;
-    border-radius:4px;
-    text-decoration:none;
-    font-size:14px;
-}
-
-.actions a:first-child{
-    background:#007bff;
-    color:white;
-}
-
-.actions a:last-child{
-    background:#dc3545;
-    color:white;
-}
+/* ---------- BUTTONS ---------- */
 
 .add-btn{
-    display:inline-block;
-    padding:10px 16px;
-    background:#28a745;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-    margin-bottom:20px;
+display:inline-block;
+padding:10px 16px;
+background:#28a745;
+color:white;
+text-decoration:none;
+border-radius:5px;
+margin-bottom:20px;
+font-weight:500;
 }
 
 .add-btn:hover{
-    background:#218838;
+background:#218838;
 }
 
-.card{
-    background:white;
-    padding:25px;
-    border-radius:6px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.1);
-}
+/* ---------- FORM ---------- */
 
 input, textarea{
-    width:100%;
-    padding:10px;
-    margin-top:5px;
-    margin-bottom:15px;
-    border:1px solid #ccc;
-    border-radius:4px;
+width:100%;
+padding:10px;
+margin-top:5px;
+margin-bottom:15px;
+border:1px solid #ccc;
+border-radius:4px;
 }
 
 button{
-    padding:10px 16px;
-    background:#007bff;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
+padding:10px 16px;
+background:#007bff;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
 }
 
 button:hover{
-    background:#0069d9;
+background:#0069d9;
 }
 
 .back{
-    display:inline-block;
-    margin-bottom:20px;
-    text-decoration:none;
-    color:#0066cc;
+display:inline-block;
+margin-bottom:20px;
+text-decoration:none;
+color:#2563eb;
+}
+
+/* ---------- TABLE ---------- */
+
+.records-table{
+width:100%;
+border-collapse:collapse;
+background:white;
+margin-top:25px;
+border-radius:8px;
+overflow:hidden;
+box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+.records-table thead{
+background:#f3f4f6;
+}
+
+.records-table th{
+text-align:left;
+padding:14px;
+font-weight:600;
+}
+
+.records-table td{
+padding:14px;
+border-top:1px solid #e5e7eb;
+vertical-align:middle;
+}
+
+.records-table tr:hover{
+background:#fafafa;
+}
+
+/* ---------- TABLE COLUMNS ---------- */
+
+.title-col{
+font-weight:600;
+width:200px;
+}
+
+.desc-col{
+color:#444;
+max-width:420px;
+}
+
+.date-col{
+width:180px;
+font-size:14px;
+color:#555;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+
+.actions{
+display:flex;
+gap:8px;
+align-items:center;
+}
+
+.btn-view,
+.btn-update,
+.btn-delete{
+padding:6px 10px;
+border-radius:5px;
+text-decoration:none;
+font-size:13px;
+color:white;
+display:inline-block;
+}
+
+.btn-view{
+background:#2563eb;
+}
+
+.btn-update{
+background:#2563eb;
+}
+
+.btn-delete{
+background:#dc3545;
+}
+
+.btn-view:hover,
+.btn-update:hover{
+background:#1e40af;
+}
+
+.btn-delete:hover{
+background:#b91c1c;
 }
 
 </style>

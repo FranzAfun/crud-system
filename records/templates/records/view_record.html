@@ -1,0 +1,42 @@
+{% extends "records/base.html" %}
+
+{% block content %}
+
+<a href="{% url 'record_list' %}">← Back to Records</a>
+
+<h1>{{ record.title }}</h1>
+
+<p>{{ record.description }}</p>
+
+<p><strong>Created:</strong> {{ record.created_at }}</p>
+
+{% if record.file %}
+
+    {% if ".jpg" in record.file.url or ".jpeg" in record.file.url or ".png" in record.file.url %}
+
+        <img src="{{ record.file.url }}" width="500">
+
+    {% else %}
+
+        <p>
+            File: <a href="{{ record.file.url }}">Open File</a>
+        </p>
+
+    {% endif %}
+
+{% endif %}
+
+<br><br>
+
+<a class="btn-update" href="{% url 'update_record' record.id %}">Update</a>
+
+<a class="btn-delete"
+   href="{% url 'delete_record' record.id %}"
+   onclick="return confirm('Delete this record?')">
+Delete
+</a>
+
+<br><br>
+
+
+{% endblock %}

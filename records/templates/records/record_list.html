@@ -2,43 +2,75 @@
 
 {% block content %}
 
-<h1>Records by Franz</h1>
+<div class="container">
+
+<h1>Records</h1>
 
 <a class="add-btn" href="{% url 'create_record' %}">Add New Record</a>
 
+<table class="records-table">
+
+<thead>
+<tr>
+<th>Title</th>
+<th>Description</th>
+<th>Created</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody>
+
 {% for record in records %}
 
-<div class="record">
+<tr>
 
-<strong>{{ record.title }}</strong><br>
-{{ record.description }}<br>
+<td class="title-col">
+{{ record.title }}
+</td>
 
-{% if record.file %}
-    {% if '.jpg' in record.file.url or '.jpeg' in record.file.url or '.png' in record.file.url %}
-        <img src="{{ record.file.url }}" width="250px"><br>
-    {% else %}
-        File: <a href="{{ record.file.url }}">Open File</a><br>
-    {% endif %}
-{% endif %}
+<td class="desc-col">
+{{ record.description }}
+</td>
 
-<br>
+<td class="date-col">
+{{ record.created_at|date:"M d, Y H:i" }}
+</td>
 
-Created: {{ record.created_at }}
-
-<br><br>
-
+<td>
 <div class="actions">
-<a href="{% url 'update_record' record.id %}">Update</a>
-<a href="{% url 'delete_record' record.id %}"
-onclick='return confirm("Are you sure you want to delete this record??")'>Delete</a>
-</div>
+
+<a class="btn-view" href="{% url 'view_record' record.id %}">
+👁
+</a>
+
+<a class="btn-update" href="{% url 'update_record' record.id %}">
+Update
+</a>
+
+<a class="btn-delete"
+href="{% url 'delete_record' record.id %}"
+onclick="return confirm('Are you sure you want to delete this record?')">
+Delete
+</a>
 
 </div>
+</td>
+
+</tr>
 
 {% empty %}
 
-<p>No records were found.</p>
+<tr>
+<td colspan="4">No records found.</td>
+</tr>
 
 {% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
 
 {% endblock %}
